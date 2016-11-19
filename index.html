@@ -91,8 +91,8 @@
         acceleration = new Victor(e.accelerationIncludingGravity.x, (isMobileSafari ? -1 : 1) * -e.accelerationIncludingGravity.y);
       });
     } else {
-      // Make acceleration follow mouse clicks
-      document.addEventListener('mousedown', function(e) {
+      // Make acceleration follow mouse
+      document.addEventListener('mousemove', function(e) {
         acceleration = new Victor(window.innerWidth / 2 - e.clientX, window.innerHeight / 2 - e.clientY).norm().multiply(new Victor(9.8, 9.8));
       });
     }
