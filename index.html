@@ -80,7 +80,7 @@
     var angularVelocity = 0;
     function loop() {
       var tangentVector = new Victor(Math.cos(bikeRotation), Math.sin(bikeRotation));
-      angularVelocity = friction * (angularVelocity + 0.005 * acceleration.dot(tangentVector) / tangentVector.magnitude());
+      angularVelocity = friction * (angularVelocity + 0.005 * acceleration.dot(tangentVector) /* / tangentVector.magnitude() */);
       setBikeRotation(bikeRotation + angularVelocity);
     }
 
