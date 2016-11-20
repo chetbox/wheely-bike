@@ -68,6 +68,7 @@
   </body>
   <script src="victor.min.js"></script>
   <script>
+    var isMobileSafari = window.navigator.userAgent.match(/^.*(iPhone|iPad).*(OS\s[0-9]).*(CriOS|Version)\/[.0-9]*\sMobile.*$/i);
     var bike = document.getElementById('bike');
     var bikeRotation = 0;
     function setBikeRotation(radians) {
@@ -86,7 +87,6 @@
 
     if (window.DeviceMotionEvent && 'ontouchstart' in window) {
       // Track the device's orientation
-      var isMobileSafari = window.navigator.userAgent.match(/^.*(iPhone|iPad).*(OS\s[0-9]).*(CriOS|Version)\/[.0-9]*\sMobile.*$/i);
       window.addEventListener('devicemotion', function(e) {
         acceleration = new Victor((isMobileSafari ? -1 : 1) * e.accelerationIncludingGravity.x, (isMobileSafari ? -1 : 1) * -e.accelerationIncludingGravity.y);
       });
