@@ -93,7 +93,7 @@
     } else {
       // Make acceleration follow mouse
       document.addEventListener('mousemove', function(e) {
-        acceleration = new Victor(window.innerWidth / 2 - e.clientX, window.innerHeight / 2 - e.clientY).norm().multiply(new Victor(9.8, 9.8));
+        acceleration = new Victor(-e.clientX / window.innerWidth + 0.5, -e.clientY / window.innerHeight + 0.5).multiply(new Victor(9.8, 9.8));
       });
     }
 
